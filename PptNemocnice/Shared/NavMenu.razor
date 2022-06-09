@@ -1,0 +1,35 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="text-center text-neutral-200" href="">Úprava produktů e-shopu se zdravotnickými potřebami</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+               <div class="nav-item px-3">
+            <NavLink class="nav-link" href="/">
+                <span class="oi oi-audio" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+      
+         <div class="nav-item px-3">
+            <NavLink class="nav-link" href="vybaveni">
+                <span class="oi oi-audio" aria-hidden="true"></span> Vybavení
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
